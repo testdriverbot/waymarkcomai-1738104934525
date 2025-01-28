@@ -1,0 +1,50 @@
+version: 4.1.44
+steps:
+  - prompt: Focus the browser window.
+    commands:
+      - command: focus-application
+        name: Google Chrome
+  - prompt: Locate the sign-up form fields.
+    commands:
+      - command: hover-text
+        text: Name
+        description: first field in the sign-up form
+        action: hover
+  - prompt: Enter test data into the form fields.
+    commands:
+      - command: hover-text
+        text: Name
+        description: first field in the sign-up form
+        action: click
+      - command: type
+        text: Test User
+      - command: hover-text
+        text: Company Name
+        description: second field in the sign-up form
+        action: click
+      - command: type
+        text: Test Company
+      - command: hover-text
+        text: Email
+        description: third field in the sign-up form
+        action: click
+      - command: type
+        text: test@example.com
+      - command: hover-text
+        text: Create Password
+        description: fourth field in the sign-up form
+        action: click
+      - command: type
+        text: TestPassword123
+  - prompt: Click the "Create Account" button.
+    commands:
+      - command: hover-text
+        text: CREATE ACCOUNT
+        description: button to submit the sign-up form
+        action: click
+  - prompt: >-
+      Assert that a confirmation message or redirect occurs.  # Use the content
+      of the file from the environment
+    commands:
+      - command: assert
+        expect: confirmation message or redirect is visible
