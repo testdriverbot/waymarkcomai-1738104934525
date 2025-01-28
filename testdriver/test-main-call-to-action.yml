@@ -1,0 +1,16 @@
+version: 4.1.44
+steps:
+  - prompt: Focus the browser window.
+    commands: []
+  - prompt: Locate the main call to action button on the page.
+    commands:
+      - command: hover-text
+        text: CREATE ACCOUNT
+        description: main call to action button on the registration form
+        action: hover
+  - prompt: >-
+      Assert that the button is visible and clickable.  # Use the content of the
+      file from the environment
+    commands:
+      - command: assert
+        expect: the "CREATE ACCOUNT" button is visible and clickable
